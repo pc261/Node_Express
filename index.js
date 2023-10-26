@@ -5,6 +5,13 @@ const app = express()
 
 const caminhobase = path.join(__dirname, "templates")
 
+
+app.get('/usuarios/:id', (requisicao,resposta)=>{
+    const id = requisicao.params.id
+    console.log(`Acessando dados do usuário ${id}`)
+    resposta.sendFile(`${caminhobase}/usuarios.html`)
+})
+
 app.get('/',(requisicao , resposta) =>{
     resposta.sendFile(`${caminhobase}/index.html`)
 })
